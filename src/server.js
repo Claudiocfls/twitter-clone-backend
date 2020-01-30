@@ -1,7 +1,11 @@
 const express = require('express');
-const routes = require('./routes');
+const routes = require('./server/routes/routes');
+const middleware = require('./server/middlewares/middleware');
+
 const app = express();
+app.use(middleware);
 app.use(routes);
+
 
 app.get('/', (req,res) => {
   res.send("Application is running - Twitter Clone Back-end");
