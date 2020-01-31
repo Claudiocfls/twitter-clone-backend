@@ -1,7 +1,8 @@
 const tweetsRoutes = require('./tweets.routes');
+const likeRoutes = require('./like.routes');
 
 function addRoutes(app) {
-  [tweetsRoutes].forEach(routes => app.use(routes));
+  [tweetsRoutes, likeRoutes].forEach(routes => app.use(routes));
 }
 
 module.exports = addRoutes;
