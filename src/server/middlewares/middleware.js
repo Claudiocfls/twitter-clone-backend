@@ -1,9 +1,9 @@
-const express = require('express');
-const middleware = express.Router();
 
-middleware.use((req,res,next) => {
-  console.log("to no meio da request");
-  next();
-});
+function appendAttributesToRequest(append) {
+  return (req,res,next) => {
+    console.log("to no meio da request", append);
+    next();
+  };
+}
 
-module.exports = middleware;
+module.exports = appendAttributesToRequest;

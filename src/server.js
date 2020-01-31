@@ -1,9 +1,18 @@
 const express = require('express');
 const routes = require('./server/routes/routes');
-const middleware = require('./server/middlewares/middleware');
+const appender = require('./server/middlewares/middleware');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0-anwgm.mongodb.net/twitter_clone?retryWrites=true&w=majority`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const app = express();
-app.use(middleware);
+app.use(appender("uhuuul"));
 app.use(routes);
 
 
