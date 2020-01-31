@@ -1,6 +1,11 @@
 const Tweet = require('./../models/Tweet');
 
 class TweetsController {
+  static async getAll(req, res) {
+    const tweets = await Tweet.find({});
+    res.json(tweets);
+  }
+
   static async create(req, res) {
     const {
       author,
