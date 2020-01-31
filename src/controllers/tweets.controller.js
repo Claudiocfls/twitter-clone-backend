@@ -2,7 +2,7 @@ const Tweet = require('./../models/Tweet');
 
 class TweetsController {
   static async getAll(req, res) {
-    const tweets = await Tweet.find({});
+    const tweets = await Tweet.find({}).sort('-createdAt');
     res.json(tweets);
   }
 
