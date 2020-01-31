@@ -1,5 +1,4 @@
 const express = require('express');
-const routes = require('./server/routes/routes');
 const appender = require('./server/middlewares/middleware');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -13,7 +12,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGOD
 
 const app = express();
 app.use(appender("uhuuul"));
-app.use(routes);
+require('./server/routes')(app);
 
 
 app.get('/', (req,res) => {
