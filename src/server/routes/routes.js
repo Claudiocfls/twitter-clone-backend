@@ -5,4 +5,6 @@ routes.get('/teste', (req,res) => {
   res.send("agora vai");
 });
 
+routes.post('/create')
+
 module.exports = routes;
