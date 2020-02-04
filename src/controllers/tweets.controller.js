@@ -17,6 +17,8 @@ class TweetsController {
       content,
     });
 
+    req.io.emit('tweet', newTweet);
+
     res.json(newTweet);
   }
 }

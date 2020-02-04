@@ -12,11 +12,15 @@ mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGOD
 });
 
 const app = express();
+
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
+app.use(appender(io));
+
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(appender("uhuuul"));
 require('./server/routes')(app);
 
 
@@ -24,6 +28,6 @@ app.get('/', (req,res) => {
   res.send("Application is running - Twitter Clone Back-end");
 })
 
-app.listen(3001, () => {
+server.listen(3001, () => {
   console.log("> Application running on port 3000");
 })

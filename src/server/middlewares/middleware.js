@@ -1,7 +1,7 @@
 
-function appendAttributesToRequest(append) {
+function appendAttributesToRequest(io) {
   return (req,res,next) => {
-    console.log("to no meio da request", append);
+    req.io = io;
     next();
   };
 }
