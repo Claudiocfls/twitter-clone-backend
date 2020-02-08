@@ -30,6 +30,7 @@ require('./server/routes')(app);
 
 
 app.get('/', (req,res) => {
+  console.log("Request made on initial route");
   res.send("Application is running - Twitter Clone Back-end");
 })
 
