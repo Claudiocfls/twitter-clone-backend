@@ -15,7 +15,7 @@ const app = express();
 
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
-app.use('/*', appender(io));
+app.use(appender(io));
 
 app.use(express.json());
 app.use(cors());
