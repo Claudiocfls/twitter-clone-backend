@@ -1,5 +1,5 @@
 const express = require('express');
-const appender = require('./server/middlewares/middleware');
+const appender = require('./server/middlewares/socket');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
