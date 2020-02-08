@@ -21,8 +21,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/hooks/post-registration', (req,res) => {
-  console.log(req);
+app.post('/hooks/post-registration', (req,res) => {
+  console.log(req.body);
   res.send('ok');
 })
 
