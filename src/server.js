@@ -21,6 +21,11 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/hooks/post-registration', (req,res) => {
+  console.log(req);
+  res.send('ok');
+})
+
 require('./server/routes')(app);
 
 
@@ -28,6 +33,8 @@ app.get('/', (req,res) => {
   res.send("Application is running - Twitter Clone Back-end");
 })
 
-server.listen(3001, () => {
-  console.log("> Application running on port 3000");
+const port = process.env.PORT;
+
+server.listen(port, () => {
+  console.log(`> Application running on port ${port}`);
 })

@@ -13,7 +13,7 @@ class TweetsController {
     } = req.body;
 
     const newTweet = await Tweet.create({
-      author,
+      author: req.user.email,
       content,
     });
 
